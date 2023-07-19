@@ -43,7 +43,7 @@ function MatchGame() {
             setGameIsActive(false);
             clearInterval(timer);
             if (time < bestTime || bestTime == '--') {
-                setBestTime(`${formatTime(time)} seconds`)
+                setBestTime(`${formatTime(time)}`)
                 document.getElementById('congrats-container').style.display = 'flex'
             }
         }
@@ -121,7 +121,7 @@ function MatchGame() {
         <div className='match-container'>
             <div className='times'>
                 <div className='timer'>Time: {formatTime(time)} seconds</div>
-                <div className='best-time'>Best Time: {bestTime}</div>
+                <div className='best-time'>Best Time: {bestTime} seconds</div>
             </div>
             <div className='card-grid'>
                 {cards.map((card) => (
