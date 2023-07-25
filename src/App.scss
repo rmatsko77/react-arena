@@ -175,6 +175,7 @@ body {
     .image-container {
         background-color: #f2f4f3;
         width: 50%;
+        max-width: 30rem;
         margin: 1rem;
         padding: .5rem 0 .75rem 0;
         border-radius: 5pt;
@@ -210,6 +211,7 @@ body {
 
     .alphabet {
         width: 50%;
+        max-width: 30rem;
         @include flexCenter();
         flex-wrap: wrap;
 
@@ -222,19 +224,19 @@ body {
             font-size: 1.5rem;
             color: black;
         }
-    
+
         .active {
             background-color: #96e6b3cf;
             cursor: pointer;
-    
+
             &:hover {
                 background-color: #96E6B3;
             }
         }
-    
+
         .inactive {
             background-color: black;
-    
+
         }
     }
 
@@ -263,7 +265,41 @@ body {
         }
 
     }
+}
 
-    
+.moto-container {
+    @include flexCenter();
+    margin: 0;
 
+    .game-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 200px;
+
+        .road {
+            --left: 0;
+            position: absolute;
+            width: 300%;
+            bottom: 0;
+            left: calc(var(--left) * 1%);
+        }
+
+        .moto {
+            --bottom: 0;
+            position: absolute;
+            left: 1%;
+            width: 10%;
+            bottom: calc(var(--bottom) * 1%)
+        }
+
+        .obstacle {
+            position: absolute;
+            left: calc(var(--left) * 1%);
+            height: 60%;
+            bottom: 0;
+        
+        }
+
+    }
 }

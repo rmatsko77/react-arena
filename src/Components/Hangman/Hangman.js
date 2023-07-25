@@ -8,7 +8,6 @@ const Hangman = () => {
     const [displayWord, setDisplayWord] = useState(null);
     const [message, setMessage] = useState('Click a letter to make a guess');
     const alphabet = alphabetData;
-    const blankIcon = <BsQuestionSquare />
     let image
 
     const getWordLength = () => {
@@ -39,6 +38,10 @@ const Hangman = () => {
 
     const handleGuess = (guess) => {
         if (attempts <= 0) {
+            return
+        }
+
+        if(word === displayWord) {
             return
         }
         if (word.includes(guess.letter)) {

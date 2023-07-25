@@ -103,6 +103,7 @@ function MatchGame() {
         setTime(0)
         setCards([])
         shuffleCards()
+
     }
 
     const handleClose = () => {
@@ -115,6 +116,7 @@ function MatchGame() {
 
         return stringTime.slice(0, index + 2)
     }
+
 
 
     return (
