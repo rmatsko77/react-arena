@@ -10,7 +10,7 @@ export class Navbar extends Component {
             <Link to='/flip' ><p>Flip 'n Find</p></Link>
             <Link to='/hangbot'><p>HangBot</p></Link>
             <Link to='/motojump'><p>MotoJump</p></Link>
-            <p>Flip 'n Find</p>
+            <Link to='/AI-XO'><p>AI-XO</p></Link>
         </div>
       </div>
     )

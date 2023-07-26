@@ -306,6 +306,7 @@ body {
         height: 40vh;
         overflow: hidden;
         background-image: url('../public/moto-imgs/bg-png.png');
+        user-select: none;
 
         .moto {
             width: 100px;
@@ -388,6 +389,73 @@ body {
                     color: $secondary-color;
                 }
             }
+        }
+    }
+}
+
+.tic-tac-toe-container {
+    @include flexCenter();
+    flex-direction: column;
+    height: 92vh;
+
+    .game-grid {
+        margin: 0;
+        padding: 3%;
+        background-color: #222245;
+        border-radius: 20pt;
+        width: 60%;
+        max-width: 500px;
+        max-height: 500px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0;
+        user-select: none;
+
+        .box {
+            @include flexCenter();
+            max-height: 23vh;
+            aspect-ratio: 1;
+            border: 4pt solid $secondary-color;
+            color: $tertiary-color;
+            font-size: 8vh;
+            text-align: center;
+        }
+
+        #cell-1 {
+            border-top: 4pt solid #222245;
+            border-left: 4pt solid #222245;
+        }
+
+        #cell-2 {
+            border-top: 4pt solid #222245;
+        }
+
+        #cell-3 {
+            border-top: 4pt solid #222245;
+            border-right: 4pt solid #222245;
+        }
+
+        #cell-4 {
+            border-left: 4pt solid #222245;
+        }
+
+        #cell-6 {
+            border-right: 4pt solid #222245;
+        }
+
+        #cell-7 {
+            border-left: 4pt solid #222245;
+            border-bottom: 4pt solid #222245;
+        }
+
+        #cell-8 {
+            border-bottom: 4pt solid #222245;
+        }
+
+        #cell-9 {
+            border-bottom: 4pt solid #222245;
+            border-right: 4pt solid #222245;
         }
     }
 }
