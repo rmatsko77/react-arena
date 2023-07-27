@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
-        publicPath: '/build'
+        publicPath: '/'
     },
     devServer: {
         port: 3005,
@@ -36,8 +36,8 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[hash].[ext]',
-                            outputPath: '/images',
+                            name: '[name].[ext]',
+                            outputPath: 'images',
                         },
                     },
                 ],
