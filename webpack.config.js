@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
-        publicPath: '/'
+        publicPath: '/',
     },
     devServer: {
         port: 3005,
