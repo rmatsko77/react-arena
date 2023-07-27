@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
+import bgGif from './moto-imgs/bg-gif.gif'
+import bgPng from './moto-imgs/bg-png.png'
+import bird from './moto-imgs/bird.gif'
+import moto from './moto-imgs/moto.gif'
+import ninja from './moto-imgs/ninja.gif'
+import snake from './moto-imgs/snake.gif'
 
 function MotoJump() {
 
@@ -9,27 +15,27 @@ function MotoJump() {
     const [score, setScore] = useState(0)
     const [bestScore, setBestScore] = useState(0)
     const [isJumping, setIsJumping] = useState(false)
-    const [backgroundImg, setBackgroundImg] = useState('moto-imgs/bg-png.png')
+    const [backgroundImg, setBackgroundImg] = useState(bgPng)
     let gravity = 0.9
     let position = 0
     const obstacles = [
         {
             name: 'snake',
-            src: 'moto-imgs/snake.gif',
+            src: snake,
             height: '80px',
             width: '100px',
             bottom: '5px'
         },
         {
             name: 'ninja',
-            src: 'moto-imgs/ninja.gif',
+            src: ninja,
             height: '100px',
             width: '50px',
             bottom: '0px'
         },
         {
             name: 'bird',
-            src: 'moto-imgs/bird.gif',
+            src: bird,
             height: '70px',
             width: '70x',
             bottom: '20px'
@@ -100,9 +106,9 @@ function MotoJump() {
 
     useEffect(() => {
         if (gameIsActive) {
-            setBackgroundImg('moto-imgs/bg-gif.gif')
+            setBackgroundImg(bgGif)
         } else {
-            setBackgroundImg('moto-imgs/bg-png.png')
+            setBackgroundImg(bgPng)
         }
 
     }, [gameIsActive])
@@ -192,7 +198,7 @@ function MotoJump() {
                 <p>Best Score: {bestScore}</p>
             </div>
             <div className='game-container' id='game' style={{ backgroundImage: 'url(' + backgroundImg + ')' }}>
-                <img src='moto-imgs/moto.gif' id='moto' className='moto'></img>
+                <img src={moto} id='moto' className='moto'></img>
                 <h4 id='game-over'>Game over! score: {score}</h4>
             </div>
             <button onClick={handleReset} className='reset-btn' id='reset-btn'>Play Again</button>

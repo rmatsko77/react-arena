@@ -12,12 +12,11 @@ function TicTacToe() {
         const randomTimer = (Math.random() * 1700) + 300
         if (isComputerTurn && isGameActive) {
             setTimeout(computerTurn, randomTimer)
-            console.log(randomTimer)
         }
     }, [isComputerTurn])
 
     useEffect(() => {
-        if(winner === 'player') {
+        if (winner === 'player') {
             setMessage(' You won! ')
             document.getElementById('reset-btn').style.display = 'block'
             return
@@ -30,7 +29,7 @@ function TicTacToe() {
             document.getElementById('reset-btn').style.display = 'block'
             return
         }
-        if(isPlayerTurn) {
+        if (isPlayerTurn) {
             setMessage(' Its your turn... make a move ')
             document.getElementById('message').style.padding = '1rem'
         } else if (isComputerTurn) {
@@ -40,7 +39,7 @@ function TicTacToe() {
     })
 
     useEffect(() => {
-        if(!document.getElementsByClassName('unmarked').length) {
+        if (!document.getElementsByClassName('unmarked').length) {
             setIsGameActive(false)
             setWinner('tie')
         }
@@ -448,7 +447,7 @@ function TicTacToe() {
     }
 
     const handleGameStart = (e) => {
-        if(e.target.id === 'me') {
+        if (e.target.id === 'me') {
             setIsPlayerTurn(true)
             setisComputerTurn(false)
         } else if (e.target.id === 'ai') {

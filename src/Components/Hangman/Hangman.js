@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { wordsData, alphabetData } from './Words';
-import { BsQuestionSquare } from "react-icons/bs";
+import { alphabetData } from './Words';
+import attempt0 from './hangman-imgs/attempt-0.png' 
+import attempt1 from './hangman-imgs/attempt-1.png' 
+import attempt2 from './hangman-imgs/attempt-2.png' 
+import attempt3 from './hangman-imgs/attempt-3.png' 
+import attempt4 from './hangman-imgs/attempt-4.png' 
+import attempt5 from './hangman-imgs/attempt-5.png' 
+import attempt6 from './hangman-imgs/attempt-6.png' 
 
 const Hangman = () => {
     const [word, setWord] = useState('');
@@ -64,25 +70,25 @@ const Hangman = () => {
 
     switch (attempts) {
         case 6:
-            image = 'hangman-imgs/attempt-6.png';
+            image = attempt6;
             break;
         case 5:
-            image = 'hangman-imgs/attempt-5.png';
+            image = attempt5;
             break;
         case 4:
-            image = 'hangman-imgs/attempt-4.png';
+            image = attempt4;
             break;
         case 3:
-            image = 'hangman-imgs/attempt-3.png';
+            image = attempt3;
             break;
         case 2:
-            image = 'hangman-imgs/attempt-2.png';
+            image = attempt2;
             break;
         case 1:
-            image = 'hangman-imgs/attempt-1.png';
+            image = attempt1;
             break;
         case 0:
-            image = 'hangman-imgs/attempt-0.png';
+            image = attempt0;
             break;
 
     }

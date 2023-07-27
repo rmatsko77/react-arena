@@ -5,7 +5,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
-        publicPath: '/'
+        publicPath: '/dist'
     },
     devServer: {
         port: 3005,
@@ -27,7 +27,19 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: '/images', 
+                    },
+                  },
+                ],
+              },
         ]
     },
     plugins: [new MiniCssExtractPlugin()],
