@@ -42,9 +42,14 @@ function MatchGame() {
         if (matchedCards.length === 16) {
             setGameIsActive(false);
             clearInterval(timer);
-            if (time < bestTime || bestTime == '--') {
-                setBestTime(`${formatTime(time)}`)
-                document.getElementById('congrats-container').style.display = 'flex'
+            if (time <= bestTime || bestTime == '--') {
+                if (bestTime == '--') {
+                    setBestTime(`${formatTime(time)}`)
+                } else {
+                    setBestTime(`${formatTime(time)}`)
+                    document.getElementById('congrats-container').style.display = 'flex'
+                }
+
             }
         }
 
