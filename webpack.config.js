@@ -1,11 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
-        publicPath: '/dist'
+        publicPath: '/build'
     },
     devServer: {
         port: 3005,
@@ -31,17 +33,20 @@ module.exports = {
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                 use: [
-                  {
-                    loader: 'file-loader',
-                    options: {
-                      name: '[name].[hash].[ext]',
-                      outputPath: '/images', 
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[hash].[ext]',
+                            outputPath: '/images',
+                        },
                     },
-                  },
                 ],
-              },
+            },
         ]
     },
-    plugins: [new MiniCssExtractPlugin()],
+    plugins: [new MiniCssExtractPlugin(),]
+    /*new HtmlWebpackPlugin({
+        template: path.resolve('./index.html'),
+    })],*/
 
 };
