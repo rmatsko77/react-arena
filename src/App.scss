@@ -42,6 +42,7 @@ body {
     .navs {
         display: flex;
         width: 75%;
+        padding-right: 2rem;
         justify-content: space-between;
         list-style-type: none;
 
@@ -51,7 +52,7 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 .5rem 0 .5rem;
+            padding: 0 1rem 0 1rem;
 
             &:hover {
                 background-color: $secondary-color;
@@ -59,6 +60,56 @@ body {
         }
     }
 }
+
+.home {
+    @include flexCenter();
+    flex-direction: column;
+    box-sizing: border-box;
+
+    h1 {
+        color: $tertiary-color;
+    }
+
+    h2 {
+        color: $tertiary-color;
+    }
+
+    .game-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 60%;
+
+        .game {
+            @include flexCenter();
+            margin: 0;
+            padding: 0;
+            margin: 2rem 0;
+            width: 60%;
+            height: 10vh;
+            background-color: #222245;
+            border-radius: 10pt;
+            border: 2pt solid transparent;
+            transition: all .25s;
+
+            &:hover {
+                border: 2pt solid white;
+            }
+
+            a {
+                @include flexCenter();
+                text-align: center;
+                font-size: 2rem;
+                width: 100%;
+                height: 10vh;
+                color: $secondary-color;
+            }
+        }
+
+    }
+}
+
 
 .match-container {
     @include flexCenter();
@@ -181,6 +232,7 @@ body {
         padding: .5rem 0 .75rem 0;
         border-radius: 5pt;
         @include flexCenter();
+        user-select: none;
 
         img {
             height: 220px;
@@ -215,6 +267,7 @@ body {
         max-width: 30rem;
         @include flexCenter();
         flex-wrap: wrap;
+        user-select: none;
 
         button {
             height: 40px;
@@ -328,14 +381,13 @@ body {
         width: 200px;
         height: 75px;
         margin: 1rem 0;
-        padding: 0;
+        padding: 5pt;
         font-size: 2rem;
         cursor: pointer;
         font-family: 'Tektur';
         background-color: $secondary-color;
         color: #f2f4f3;
         border-radius: 3px;
-        outline: 1pt solid #f2f4f3;
         border: 1pt solid #f2f4f3;
 
         &:active {
