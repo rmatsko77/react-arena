@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { alphabetData } from './Words';
-import attempt0 from './hangman-imgs/attempt-0.png' 
-import attempt1 from './hangman-imgs/attempt-1.png' 
-import attempt2 from './hangman-imgs/attempt-2.png' 
-import attempt3 from './hangman-imgs/attempt-3.png' 
-import attempt4 from './hangman-imgs/attempt-4.png' 
-import attempt5 from './hangman-imgs/attempt-5.png' 
-import attempt6 from './hangman-imgs/attempt-6.png' 
+import attempt0 from './hangman-imgs/attempt-0.png'
+import attempt1 from './hangman-imgs/attempt-1.png'
+import attempt2 from './hangman-imgs/attempt-2.png'
+import attempt3 from './hangman-imgs/attempt-3.png'
+import attempt4 from './hangman-imgs/attempt-4.png'
+import attempt5 from './hangman-imgs/attempt-5.png'
+import attempt6 from './hangman-imgs/attempt-6.png'
 
 const Hangman = () => {
     const [word, setWord] = useState('');
@@ -30,9 +30,18 @@ const Hangman = () => {
             setDisplayWord('_'.repeat(wordString.length));
         }
 
-        fetchRandomWord()
+        handleReset()
 
-    }, []);
+    }, [])
+
+    const fetchRandomWord = async () => {
+        const res = await fetch(`https://random-word-api.vercel.app/api?words=1&length=${getWordLength()}`)
+        const word = await res.json()
+        const wordString = word.toString()
+
+        setWord(wordString)
+        setDisplayWord('_'.repeat(wordString.length));
+    }
 
     useEffect(() => {
         if (word && attempts === 0) {
@@ -47,7 +56,7 @@ const Hangman = () => {
             return
         }
 
-        if(word === displayWord) {
+        if (word === displayWord) {
             return
         }
         if (word.includes(guess.letter)) {
@@ -94,7 +103,20 @@ const Hangman = () => {
     }
 
     const handleReset = () => {
-        
+        const letters = document.querySelectorAll('.letter')
+
+        for (let i = 0; i < letters.length; i++) {
+            letters[i].removeAttribute('disabled')
+            letters[i].classList.remove('inactive')
+            letters[i].classList.add('active')
+            letters[i].style.backgroundColor = null
+            letters[i].style.cursor = null
+        }
+
+        setAttempts(6)
+        fetchRandomWord()
+        setMessage('Click a letter to make a guess')
+
     }
 
     return (
@@ -107,10 +129,10 @@ const Hangman = () => {
             <p className='message'>{message}</p>
             <div className='alphabet'>
                 {alphabet.map((letter) => (
-                    <button className={letter.active} id={letter.letter} onClick={() => handleGuess(letter)}>{letter.letter}</button>
+                    <button className={`letter ${letter.active}`} id={letter.letter} onClick={() => handleGuess(letter)}>{letter.letter}</button>
                 ))}
             </div>
-            <button className='reset-btn' onClick={() => window.location.reload()}>Reset Game</button>
+            <button className='reset-btn' onClick={handleReset}>Reset Game</button>
         </div>
     );
 };
