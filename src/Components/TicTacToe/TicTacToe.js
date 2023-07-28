@@ -466,7 +466,7 @@ function TicTacToe() {
     }
 
     const handleReset = () => {
-        document.querySelector('.startpage').style.display = 'block'
+        document.querySelector('.startpage').style.display = null
         const box = document.querySelectorAll('.box')
         console.log(box)
         
