@@ -12,7 +12,7 @@ const Hangman = () => {
     const [word, setWord] = useState('');
     const [attempts, setAttempts] = useState(6);
     const [displayWord, setDisplayWord] = useState(null);
-    const [message, setMessage] = useState('Click a letter to make a guess');
+    const [message, setMessage] = useState('Click a letter to make a guess ');
     const alphabet = alphabetData;
     let image
 
