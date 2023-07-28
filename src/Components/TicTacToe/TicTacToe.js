@@ -39,6 +39,12 @@ function TicTacToe() {
     })
 
     useEffect(() => {
+        if(!winner) {
+            document.getElementById('reset-btn').style.display = 'none'
+        }
+    })
+
+    useEffect(() => {
         if (!document.getElementsByClassName('unmarked').length) {
             setIsGameActive(false)
             setWinner('tie')
@@ -459,6 +465,23 @@ function TicTacToe() {
         document.querySelector('.startpage').style.display = 'none'
     }
 
+    const handleReset = () => {
+        document.querySelector('.startpage').style.display = 'block'
+        const box = document.querySelectorAll('.box')
+        console.log(box)
+        
+        for (let i = 0; i < box.length; i++) {
+            box[i].classList.remove('marked')
+            box[i].classList.add('unmarked')
+            box[i].innerHTML = ''
+        }
+
+        setWinner(null)
+        setIsPlayerTurn(null)
+        setisComputerTurn(null)
+        
+    }
+
     const checkWinner = () => {
         const grid = document.getElementById('grid').children
         if (grid[0].innerHTML == 'X' && grid[1].innerHTML == 'X' && grid[2].innerHTML == 'X') {
@@ -533,7 +556,7 @@ function TicTacToe() {
                     <button onClick={handleGameStart} id='ai'>AI</button>
                 </div>
             </div>
-            <button className='reset-btn' id='reset-btn' onClick={() => window.location.reload()}>Play Again</button>
+            <button className='reset-btn' id='reset-btn' onClick={handleReset}>Play Again</button>
         </div>
     )
 }
